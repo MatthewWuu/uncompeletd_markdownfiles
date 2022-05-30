@@ -35,13 +35,13 @@ FOR more details, see also in this [website](https://www.gnu.org/gnu/linux-and-g
 
 Here is the difference between WSL1 and WSL2
 
-> <img src="C:\Users\15290\AppData\Roaming\Typora\typora-user-images\image-20211128182033853.png" alt="image-20211128182033853" style="zoom:50%;" />
+> pic
 
 
 
 **You need to click on this tab as you wish to install WSL in your Windows OS**
 
-<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211128185455037.png" alt="image-20211128185455037" style="zoom: 33%;" />
+pic
 
 Encounter problems? Here are some troubleshooter pages ：
 
@@ -85,21 +85,16 @@ chsh -s /bin/zsh
 
 有什么不同？：在windows terminal中的cmd进入到wsl， 我进入到的是window里面的文件夹 `inorganicunix@inorganics:/mnt/c/Users/15290$` ，但是cd后会回到 `/home/inorganicunix` ；在wt里面打开Ubuntu也是一样。但是如果直接打开Ubuntu，不通过wt，那么初始所在的路径是在 `/home/inorganicunix`；在wt的powershell里打开也是一样。为什么呢？显示如下图
 
-<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211129164228787-16381973498561.png" alt="image-20211129164228787" style="zoom:25%;" />
-
-<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211129164331759-16381973542912.png" alt="image-20211129164331759" style="zoom: 25%;" />
-
-<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211129164452355-16381973565413.png" alt="image-20211129164452355" style="zoom:25%;" />
-
-<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211129164515990-16381973579744.png" alt="image-20211129164515990" style="zoom: 25%;" />
-
 
 
 目前猜测：
 
 因为是通过Linux 补全只能在自己的目录下？？
 
-
+***2022/5/30更新**：*
+可以理解成两个不同的文件管理方式
+一个是Windows的 一个是Ubuntu的
+cd到最底层的文件目录 是linux的根目录
 
 
 
@@ -127,7 +122,7 @@ hierarchy of folders("directories" in Unix)
 
 home directory(includes personal files) $\equiv$ "~"
 
-path(highlighted):<img src="C:\Users\15290\OneDrive - 厦门大学(马来西亚分校)\Desktop\Unix programming\coursera\image-20211129013711181.png" alt="image-20211129013711181" style="zoom: 33%;" />
+
 
 - Here are some basic commands
 
@@ -343,11 +338,108 @@ inorganicunix@inorganics:/mnt/c/Users/15290/My Documents/Code$
 
 
 
+### SECOND WEEK NOTE
+
+In this week section, most of the knowledge are made up with a great amount of **fractional command**. I try to cluster them by classes.
+
+##### ***Summary***
+
++ grep and `egrep` can be used along with regular expressions to search for patterns of text in a file.
+
++ Metacharacters are used in regular expressions to describe patterns of characters.
+
++ `find` can be used to search for the names of files in a directory.
+
+-----------
 
 
 
+#### **-Regular expression 正则表达式**
 
+text data, such as ../states.txt --> can be treat as  **string**
+use regex to search string (a datatype) 
 
+.txt 文件内搜索
+`grep “x” states.txt`  \\\ here the **''x''** is a regular expression
 
+#### **-Metacharacters 元字符**
 
+use `egrep` to handle matechar. well rather than `grep` 
+"." stands for one char, called period metachar.
+
+`egrep "i.g" states.txt`
+we can get "irg"/"ivg" or something like it
+
+#### **-Quantifier sign** 
+
++  "+", "*", {n} defines times of occurrence of adjacent char (邻近的char)
+
+```bash
+egrep "s*i" states.txt
+egrep "i*s" states.txt
+egrep "s{2,3}" states.txt
+egrep "(i.{2}){3}" states.txt \\很好解释` 
+```
+
+#### **-Character set**
+
+```bash
+egrep "\s" small.txt \\space
+egrep "\w" small.txt \\words
+```
+
+-v flag \\invert_match \\\类似not
+
+```bash
+egrep -v "\s" small.txt \\NON-space
+```
+
+除了如上面通用的set 可以用 [ ]来定义一个set
+
+```bash
+egrep "[aeiou]" small.txt
+```
+
+用^ (caret) 来表示补集
+
+```bash
+egrep "[^aeiou]" small.txt
+```
+
+标志一个range [a-z] 	\\\it's casesensitive
+
+```bash
+egrep "[a-z]" small.txt
+egrep "[1-9]" small.txt
+```
+
+#### **-标点符号**
+
+Add **\\** before you type in punctuations. Then we can search in the text files.
+
+```shell
+inorganicunix@inorganics:/mnt/c/Users/15290/Desktop/2022_Spring_semester$ egrep "\." small.txt
+http://www.jhsph.edu/
+```
+
+#### **-Anchor** 
+
++ **^** anchor the start of the line
++ **$** anchor the end of the line
+
+the flag **"-n"** can be used to print out the line number accrodingly
+
++ **|** stands for OR  
+
+`egrep "North|South" states.txt`
+
+`egrep -n "^M|North" states.txt`
+
+<u>-v_叫做一个flag</u>
+
+#### **-Find a file by name**
+
++ Search downward from the current dir *(the defult dir is the current dir)*.
+
+`$ find . -name "*.pdf"`
 
