@@ -1,0 +1,9 @@
+if [[ $1 -eq 4 ]]
+then
+	echo "that's right"
+elif [[ $1 -eq 5 ]]
+then
+	echo "this is also right"
+else
+	echo "you entered: $1, this is not we i want"
+fiecho "start program"

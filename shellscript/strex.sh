@@ -1,0 +1,5 @@
+city_one="Xiamen"
+city_two="LA"
+echo "Print in one line. The first is: $city_one. The second is: $city_two"
+echo "Print in different line:$city_one"
+echo "				$city_two"

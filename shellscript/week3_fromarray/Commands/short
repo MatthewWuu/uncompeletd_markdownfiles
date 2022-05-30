@@ -1,0 +1,4 @@
+#!/usr/bin/env bash  
+#this is called shebang to guide shell where how to execute
+echo "a small program"
+

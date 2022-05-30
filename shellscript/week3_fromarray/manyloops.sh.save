@@ -1,0 +1,21 @@
+echo "list the shellfiles on current directory"
+
+for shellfile in *.sh
+do
+	echo "shell file: $shellfile"
+done
+
+echo "list the shellfile on the spesific directory"
+
+for shellfile2 in ../*.sh
+do
+	echo "shell files:$shellfile2"
+done
+
+colors=(white green blue yellow grey purple)
+
+echo "array:"
+
+for ar in colors
+
+for ar in 
