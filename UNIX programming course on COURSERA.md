@@ -443,3 +443,60 @@ the flag **"-n"** can be used to print out the line number accrodingly
 
 `$ find . -name "*.pdf"`
 
+
+
+
+#### **-Differentiate**
+
++ head // somthing like cat > 
+
+`head -n 4 states.txt > four.txt`
+
++ diff //can differenciate the difference betw given two files
+
+`diff states.txt four.txt`
+
+
++ hash //generate a unique code from the content; prevent the malicous files; shell provides two forms of hash to check on the files
+
+Let's check your computed hash with the provided hash
+
+***MD5* and *SHA-1*.**
+
+***-MD5***
+```bash
+inorganicunix@inorganics:/mnt/c/Users/15290/Desktop/shellscript/txt_files$ md5sum states.txt
+c7dbf17524d5b10647ab6895df7bb953  states.txt
+```
+***-sha224sum & sha256sum***
+```bash
+inorganicunix@inorganics:/mnt/c/Users/15290/Desktop/shellscript/txt_files$ sha224sum states.txt
+640534595668f3ef43f88f0920972d55104b2c2c2bbb0bc21ef5e6e2  states.txt
+
+inorganicunix@inorganics:/mnt/c/Users/15290/Desktop/shellscript/txt_files$ sha256sum states.txt
+3a788c1fa94976bf16d6e0708f022d4971f5ccc26bc1e022eb83bb782776ee1c  states.txt
+```
+
+#### **-Pips**
+
+The pipe (|) takes the output of the program on its left side and directs the output to be the input for the program on its right side.
+
+
+
+#### **-Make(incompleted)**
+
+**usages:** 
+   install programs **->** compile from source code to program. This is widely used on LinuxOS when you install some programs;
+   creat document automatically 
+
+-target file
+	目标下的任何命令都必须使用 Tab 缩进
+
+
+**more for makefile tutorial:**
+- https://makefiletutorial.com/#makefile-cookbook
+- https://opensource.com/article/18/8/what-how-makefile
+
+
+
+
