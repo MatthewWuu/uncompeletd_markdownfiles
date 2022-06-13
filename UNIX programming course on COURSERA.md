@@ -328,15 +328,14 @@ inorganicunix@inorganics:/mnt/c/Users/15290/My Documents/Code$
 
   IF you want to append another line to the end of echo-out.txt, so typed echo "A third line." > echo-out.txt into the terminal when really I meant to type echo "A third line." >> echo-out.txt**(notice I used > when I meant to use >>)**.  The previous content would be covered by the current inputs.
 
-  -------
 
 #### -Text Editor
 
 - **vim and emacs** // two prevailing text editor in the world.
 
 
-
-
+----
+----
 
 ### SECOND WEEK NOTE
 
@@ -497,6 +496,7 @@ The pipe (|) takes the output of the program on its left side and directs the ou
 - https://makefiletutorial.com/#makefile-cookbook
 - https://opensource.com/article/18/8/what-how-makefile
 
-
+---------
+-------
 
 
